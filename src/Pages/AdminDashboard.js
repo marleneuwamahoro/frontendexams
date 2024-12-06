@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { MdArrowUpward, MdArrowDownward } from "react-icons/md";
+import { MdArrowUpward } from "react-icons/md";
 
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
@@ -12,8 +12,6 @@ const AdminDashboard = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [roles, setRoles] = useState([]);
   const [selectedRole, setSelectedRole] = useState("");
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [sortConfig, setSortConfig] = useState({ key: "username", direction: "asc" });
 
   // Fetch data (users and roles)
