@@ -52,23 +52,10 @@ const SignUp = () => {
   };
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#f0f4f8', padding: '40px 0' }}>
+    <div style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#f0f4f8'}}>
       {/* Header Section */}
-      <header style={{ background: '#0056b3', color: '#fff', padding: '20px 0' }}>
-        <h1 style={{ textAlign: 'center', fontSize: '2.5rem' }}>Create Your Account</h1>
-        <nav>
-          <ul style={{ listStyle: 'none', display: 'flex', justifyContent: 'center', padding: '0' }}>
-            <li style={{ margin: '0 20px' }}>
-              <a href="/" style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem' }}>Home</a>
-            </li>
-            <li style={{ margin: '0 20px' }}>
-              <a href="/login" style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem' }}>Login</a>
-            </li>
-            <li style={{ margin: '0 20px' }}>
-              <a href="/signup" style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem' }}>Sign Up</a>
-            </li>
-          </ul>
-        </nav>
+      <header style={{ background: 'green ', color: '#fff', padding: '20px 0' }}>
+        <h1 style={{ textAlign: 'center', fontSize: '2.5rem' }}>Welcome to make Sign Up</h1>
       </header>
 
       {/* SignUp Form Section */}
@@ -229,7 +216,7 @@ const SignUp = () => {
             type="submit"
             style={{
               padding: '14px 30px',
-              backgroundColor: '#0056b3',
+              backgroundColor: 'green',
               color: '#fff',
               border: 'none',
               borderRadius: '6px',
@@ -243,13 +230,13 @@ const SignUp = () => {
         </form>
 
         <p style={{ marginTop: '20px' }}>
-          Already have an account? <a href="/login" style={{ color: '#0056b3' }}>Login</a>
+          Already have an account? <a href="/login" style={{ color: 'green' }}>Login</a>
         </p>
       </div>
 
       {/* Footer Section */}
       <footer style={{ background: '#333', color: '#fff', padding: '30px 0', textAlign: 'center' }}>
-        <p style={{ fontSize: '1rem' }}>&copy; 2024 Online Job Portal | All rights reserved</p>
+        <p style={{ fontSize: '1rem' }}>&copy; 2024 Dry cleanner Ltd | All rights reserved</p>
       </footer>
     </div>
   );

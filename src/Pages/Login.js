@@ -125,14 +125,9 @@ function Login() {
 
     return (
         <div>
-            {/* Header */}
-            <header style={styles.header}>
-                <h1 style={styles.headerTitle}>Login</h1>
-            </header>
-
             {/* Login Form */}
             <div style={styles.container}>
-                <h2 style={styles.heading}>Welcome Back!</h2>
+                <h2 style={styles.heading}>Welcome Back to Login!</h2>
 
                 {/* Error Message */}
                 {errorMessage && <div style={styles.error}>{errorMessage}</div>}
