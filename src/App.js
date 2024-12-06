@@ -9,7 +9,7 @@ import UploadResume from './Pages/upload';
 import ResetPassword from './Pages/ResetPassword';
 import ForgotPassword from './Pages/ForgetPassword';
 import EditUser from './Pages/EditUser';
-import OnlineJobPortal from './Pages/indx';
+import Index from './Pages/indx';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <Router>
         <Routes>
 
-          <Route path="/" element={<OnlineJobPortal />} />
+          <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/UserDashboard" element={<UserDashboard />} />
@@ -28,7 +28,6 @@ function App() {
           <Route path="/ResetPassword" element={<ResetPassword />} />
           <Route path="/ForgetPassword" element={<ForgotPassword />} />
           <Route path="/EditUser" element={<EditUser />} />
-          <Route path="/indx" element={<OnlineJobPortal />} />
         </Routes>
       </Router>
     </>

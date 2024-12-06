@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
-const OnlineJobPortal = () => {
+const index = () => {
   return (
     <div>
       {/* Header with Flexbox */}
@@ -101,4 +101,4 @@ const OnlineJobPortal = () => {
   );
 };
 
-export default OnlineJobPortal;
+export default index;
