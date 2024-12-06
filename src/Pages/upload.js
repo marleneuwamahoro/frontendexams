@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios"; // Import axios
+import axios from "axios";
+import { Container, Row, Col, Form, Button, Alert, ListGroup, Spinner } from "react-bootstrap";
 
 const UploadResume = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // Fetch the list of uploaded files when the component mounts
   useEffect(() => {
     const fetchUploadedFiles = async () => {
       try {
-        // Replace with your actual backend URL
         const response = await axios.get("https://backendapps-0d3a0920208f.herokuapp.com/files");
         setUploadedFiles(response.data); // Assuming backend returns all uploaded files
       } catch (error) {
@@ -37,20 +38,16 @@ const UploadResume = () => {
       return;
     }
 
-    // Prepare form data
     const formData = new FormData();
     formData.append("file", selectedFile);
 
     try {
-      // Send POST request to backend for file upload
+      setLoading(true);
       const response = await axios.post("https://backendapps-0d3a0920208f.herokuapp.com/upload", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        headers: { "Content-Type": "multipart/form-data" },
       });
 
       if (response.data && response.data.resumeFileName) {
-        // On success, update the UI
         const newFile = {
           id: uploadedFiles.length + 1,
           resumeFileName: response.data.resumeFileName,
@@ -64,72 +61,83 @@ const UploadResume = () => {
     } catch (error) {
       setErrorMessage("Failed to upload file. Please try again.");
       setSuccessMessage("");
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Handle file download
   const handleDownload = (id) => {
     const downloadUrl = `https://backendapps-0d3a0920208f.herokuapp.com/files/download/${id}`;
     const link = document.createElement("a");
     link.href = downloadUrl;
     link.setAttribute("download", "");
     document.body.appendChild(link);
-    link.click(); // Trigger download
+    link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <div className="container mt-5 p-4 border rounded shadow bg-white" style={{ maxWidth: "700px" }}>
-      <h2 className="text-center mb-4">Upload Your Resume</h2>
+    <Container className="mt-5 p-4 bg-light rounded shadow">
+      {/* Header */}
+      <Row className="text-center mb-4">
+        <Col>
+          <h2 className="fw-bold text-primary">Upload Your Resume</h2>
+          <p className="text-muted">Easily upload and manage your resumes below.</p>
+        </Col>
+      </Row>
 
-      {/* Success or Error Messages */}
-      {successMessage && <div className="alert alert-success text-center">{successMessage}</div>}
-      {errorMessage && <div className="alert alert-danger text-center">{errorMessage}</div>}
+      {/* Success/Error Messages */}
+      {successMessage && <Alert variant="success" className="text-center">{successMessage}</Alert>}
+      {errorMessage && <Alert variant="danger" className="text-center">{errorMessage}</Alert>}
 
-      {/* Upload Form */}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <input
-            type="file"
-            className="form-control"
-            onChange={handleFileChange}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary w-100">
-          Upload
-        </button>
-      </form>
+      {/* File Upload Form */}
+      <Row>
+        <Col md={{ span: 8, offset: 2 }}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label className="fw-bold">Select File</Form.Label>
+              <Form.Control type="file" onChange={handleFileChange} required />
+            </Form.Group>
+            <Button type="submit" variant="primary" className="w-100" disabled={loading}>
+              {loading ? <Spinner animation="border" size="sm" /> : "Upload"}
+            </Button>
+          </Form>
+        </Col>
+      </Row>
 
-      {/* Display Uploaded Files */}
-      <div className="file-list mt-5">
-        <h3>Uploaded Files:</h3>
-        <div className="list-group">
+      {/* Uploaded Files List */}
+      <Row className="mt-5">
+        <Col>
+          <h3 className="fw-bold">Uploaded Files:</h3>
           {uploadedFiles.length > 0 ? (
-            uploadedFiles.map((file) => (
-              <div className="list-group-item d-flex justify-content-between align-items-center" key={file.id}>
-                <span>{file.resumeFileName}</span>
-                <button
-                  onClick={() => handleDownload(file.id)} // Download file by ID
-                  className="btn btn-info btn-sm"
+            <ListGroup>
+              {uploadedFiles.map((file) => (
+                <ListGroup.Item
+                  key={file.id}
+                  className="d-flex justify-content-between align-items-center"
                 >
-                  Download
-                </button>
-              </div>
-            ))
+                  <span>{file.resumeFileName}</span>
+                  <Button variant="info" size="sm" onClick={() => handleDownload(file.id)}>
+                    Download
+                  </Button>
+                </ListGroup.Item>
+              ))}
+            </ListGroup>
           ) : (
-            <p>No files uploaded yet.</p>
+            <p className="text-muted">No files uploaded yet.</p>
           )}
-        </div>
-      </div>
+        </Col>
+      </Row>
 
       {/* Back to Dashboard Button */}
-      <div className="text-center mt-4">
-        <a href="/AdminDaschboard" className="btn btn-warning">
-          Back to Dashboard
-        </a>
-      </div>
-    </div>
+      <Row className="mt-4 text-center">
+        <Col>
+          <Button href="/AdminDaschboard" variant="warning">
+            Back to Dashboard
+          </Button>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

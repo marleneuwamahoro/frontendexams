@@ -52,31 +52,47 @@ const SignUp = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', fontFamily: 'Poppins, sans-serif', backgroundColor: '#f9f9f9', padding: '20px' }}>
-      <header style={{ background: '#0056b3', color: 'white', padding: '1rem 0' }}>
-        <h1 style={{ fontSize: '2.5rem', marginBottom: '10px' }}>Create Your Account</h1>
+    <div style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#f0f4f8', padding: '40px 0' }}>
+      {/* Header Section */}
+      <header style={{ background: '#0056b3', color: '#fff', padding: '20px 0' }}>
+        <h1 style={{ textAlign: 'center', fontSize: '2.5rem' }}>Create Your Account</h1>
         <nav>
           <ul style={{ listStyle: 'none', display: 'flex', justifyContent: 'center', padding: '0' }}>
-            <li style={{ margin: '0 15px' }}><a href="/" style={{ color: 'white', textDecoration: 'none', padding: '10px 15px' }}>Home</a></li>
-            <li style={{ margin: '0 15px' }}><a href="/login" style={{ color: 'white', textDecoration: 'none', padding: '10px 15px' }}>Login</a></li>
-            <li style={{ margin: '0 15px' }}><a href="/signup" style={{ color: 'white', textDecoration: 'none', padding: '10px 15px' }}>Sign Up</a></li>
+            <li style={{ margin: '0 20px' }}>
+              <a href="/" style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem' }}>Home</a>
+            </li>
+            <li style={{ margin: '0 20px' }}>
+              <a href="/login" style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem' }}>Login</a>
+            </li>
+            <li style={{ margin: '0 20px' }}>
+              <a href="/signup" style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem' }}>Sign Up</a>
+            </li>
           </ul>
         </nav>
       </header>
 
-      <div style={{
-        background: 'white', padding: '50px 20px', textAlign: 'center', borderRadius: '8px', margin: '20px auto',
-        maxWidth: '600px', boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
-      }}>
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>Sign Up</h2>
+      {/* SignUp Form Section */}
+      <div
+        style={{
+          background: '#fff',
+          borderRadius: '8px',
+          margin: '40px auto',
+          padding: '40px 30px',
+          boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
+          maxWidth: '500px',
+        }}
+      >
+        <h2 style={{ textAlign: 'center', fontSize: '2rem', color: '#333', marginBottom: '30px' }}>Sign Up</h2>
 
-        {errorMessage && <div style={{ color: 'red', marginBottom: '20px' }}>{errorMessage}</div>}
-        {successMessage && <div style={{ color: 'green', marginBottom: '20px' }}>{successMessage}</div>}
+        {/* Error and Success Messages */}
+        {errorMessage && <div style={{ color: 'red', marginBottom: '20px', textAlign: 'center' }}>{errorMessage}</div>}
+        {successMessage && <div style={{ color: 'green', marginBottom: '20px', textAlign: 'center' }}>{successMessage}</div>}
 
+        {/* SignUp Form */}
         <form onSubmit={handleSubmit}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px', marginBottom: '20px' }}>
             <div>
-              <label htmlFor="username" style={{ fontWeight: 'bold', textAlign: 'left', marginBottom: '5px' }}>Username</label>
+              <label htmlFor="username" style={{ fontWeight: 'bold', marginBottom: '8px', display: 'block' }}>Username</label>
               <input
                 type="text"
                 id="username"
@@ -85,12 +101,17 @@ const SignUp = () => {
                 onChange={handleChange}
                 required
                 style={{
-                  padding: '10px', border: '1px solid #ddd', borderRadius: '5px', fontSize: '1rem', width: '100%'
+                  padding: '12px',
+                  border: '1px solid #ddd',
+                  borderRadius: '6px',
+                  fontSize: '1rem',
+                  width: '100%',
                 }}
               />
             </div>
+
             <div>
-              <label htmlFor="email" style={{ fontWeight: 'bold', textAlign: 'left', marginBottom: '5px' }}>Email</label>
+              <label htmlFor="email" style={{ fontWeight: 'bold', marginBottom: '8px', display: 'block' }}>Email</label>
               <input
                 type="email"
                 id="email"
@@ -99,13 +120,17 @@ const SignUp = () => {
                 onChange={handleChange}
                 required
                 style={{
-                  padding: '10px', border: '1px solid #ddd', borderRadius: '5px', fontSize: '1rem', width: '100%'
+                  padding: '12px',
+                  border: '1px solid #ddd',
+                  borderRadius: '6px',
+                  fontSize: '1rem',
+                  width: '100%',
                 }}
               />
             </div>
 
             <div>
-              <label htmlFor="password" style={{ fontWeight: 'bold', textAlign: 'left', marginBottom: '5px' }}>Password</label>
+              <label htmlFor="password" style={{ fontWeight: 'bold', marginBottom: '8px', display: 'block' }}>Password</label>
               <input
                 type="password"
                 id="password"
@@ -114,13 +139,17 @@ const SignUp = () => {
                 onChange={handleChange}
                 required
                 style={{
-                  padding: '10px', border: '1px solid #ddd', borderRadius: '5px', fontSize: '1rem', width: '100%'
+                  padding: '12px',
+                  border: '1px solid #ddd',
+                  borderRadius: '6px',
+                  fontSize: '1rem',
+                  width: '100%',
                 }}
               />
             </div>
 
             <div>
-              <label htmlFor="firstName" style={{ fontWeight: 'bold', textAlign: 'left', marginBottom: '5px' }}>First Name</label>
+              <label htmlFor="firstName" style={{ fontWeight: 'bold', marginBottom: '8px', display: 'block' }}>First Name</label>
               <input
                 type="text"
                 id="firstName"
@@ -129,12 +158,17 @@ const SignUp = () => {
                 onChange={handleChange}
                 required
                 style={{
-                  padding: '10px', border: '1px solid #ddd', borderRadius: '5px', fontSize: '1rem', width: '100%'
+                  padding: '12px',
+                  border: '1px solid #ddd',
+                  borderRadius: '6px',
+                  fontSize: '1rem',
+                  width: '100%',
                 }}
               />
             </div>
+
             <div>
-              <label htmlFor="lastName" style={{ fontWeight: 'bold', textAlign: 'left', marginBottom: '5px' }}>Last Name</label>
+              <label htmlFor="lastName" style={{ fontWeight: 'bold', marginBottom: '8px', display: 'block' }}>Last Name</label>
               <input
                 type="text"
                 id="lastName"
@@ -143,13 +177,17 @@ const SignUp = () => {
                 onChange={handleChange}
                 required
                 style={{
-                  padding: '10px', border: '1px solid #ddd', borderRadius: '5px', fontSize: '1rem', width: '100%'
+                  padding: '12px',
+                  border: '1px solid #ddd',
+                  borderRadius: '6px',
+                  fontSize: '1rem',
+                  width: '100%',
                 }}
               />
             </div>
 
             <div>
-              <label htmlFor="dob" style={{ fontWeight: 'bold', textAlign: 'left', marginBottom: '5px' }}>Date of Birth</label>
+              <label htmlFor="dob" style={{ fontWeight: 'bold', marginBottom: '8px', display: 'block' }}>Date of Birth</label>
               <input
                 type="date"
                 id="dob"
@@ -158,12 +196,17 @@ const SignUp = () => {
                 onChange={handleChange}
                 required
                 style={{
-                  padding: '10px', border: '1px solid #ddd', borderRadius: '5px', fontSize: '1rem', width: '100%'
+                  padding: '12px',
+                  border: '1px solid #ddd',
+                  borderRadius: '6px',
+                  fontSize: '1rem',
+                  width: '100%',
                 }}
               />
             </div>
+
             <div>
-              <label htmlFor="phone" style={{ fontWeight: 'bold', textAlign: 'left', marginBottom: '5px' }}>Phone Number</label>
+              <label htmlFor="phone" style={{ fontWeight: 'bold', marginBottom: '8px', display: 'block' }}>Phone Number</label>
               <input
                 type="tel"
                 id="phone"
@@ -171,25 +214,41 @@ const SignUp = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 required
-
                 style={{
-                  padding: '10px', border: '1px solid #ddd', borderRadius: '5px', fontSize: '1rem', width: '100%'
+                  padding: '12px',
+                  border: '1px solid #ddd',
+                  borderRadius: '6px',
+                  fontSize: '1rem',
+                  width: '100%',
                 }}
               />
             </div>
           </div>
 
-          <button type="submit" style={{
-            padding: '10px 30px', background: '#ff5733', color: 'white', border: 'none', borderRadius: '5px',
-            fontSize: '1rem', cursor: 'pointer', transition: 'background 0.3s'
-          }}>Sign Up</button>
+          <button
+            type="submit"
+            style={{
+              padding: '14px 30px',
+              backgroundColor: '#0056b3',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '6px',
+              fontSize: '1rem',
+              cursor: 'pointer',
+              width: '100%',
+            }}
+          >
+            Sign Up
+          </button>
         </form>
-        <p>Already have an account? <a href="/login" style={{ color: '#0056b3' }}>Login</a></p>
+
+        <p style={{ marginTop: '20px' }}>
+          Already have an account? <a href="/login" style={{ color: '#0056b3' }}>Login</a>
+        </p>
       </div>
 
-      <footer style={{
-        background: '#333', color: 'white', padding: '20px 0', textAlign: 'center'
-      }}>
+      {/* Footer Section */}
+      <footer style={{ background: '#333', color: '#fff', padding: '30px 0', textAlign: 'center' }}>
         <p style={{ fontSize: '1rem' }}>&copy; 2024 Online Job Portal | All rights reserved</p>
       </footer>
     </div>

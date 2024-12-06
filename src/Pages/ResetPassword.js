@@ -10,7 +10,6 @@ const ResetPassword = () => {
 
   useEffect(() => {
     const token = searchParams.get("token");
-
     if (!token) {
       alert("Invalid or expired token.");
       navigate("/forgot-password");
@@ -27,11 +26,14 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await fetch("https://backendapps-0d3a0920208f.herokuapp.com/reset-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token, newPassword }),
-      });
+      const response = await fetch(
+        "https://backendapps-0d3a0920208f.herokuapp.com/reset-password",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token, newPassword }),
+        }
+      );
 
       if (response.ok) {
         alert("Password successfully reset!");
@@ -45,11 +47,32 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div className="card shadow p-4" style={{ maxWidth: "400px", width: "100%" }}>
-        <h2 className="text-center mb-4">Reset Password</h2>
+    <div
+      className="d-flex justify-content-center align-items-center vh-100"
+      style={{
+        background: "linear-gradient(135deg, #ff758c, #ff7eb3)",
+      }}
+    >
+      <div
+        className="card shadow-lg p-5"
+        style={{
+          maxWidth: "450px",
+          width: "100%",
+          borderRadius: "15px",
+          backgroundColor: "#fff",
+        }}
+      >
+        <h2
+          className="text-center mb-4"
+          style={{
+            color: "#ff758c",
+            fontWeight: "bold",
+          }}
+        >
+          Reset Your Password
+        </h2>
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
+          <div className="mb-4">
             <label htmlFor="newPassword" className="form-label">
               New Password
             </label>
@@ -60,9 +83,13 @@ const ResetPassword = () => {
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               required
+              placeholder="Enter new password"
+              style={{
+                borderRadius: "10px",
+              }}
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-4">
             <label htmlFor="confirmPassword" className="form-label">
               Confirm Password
             </label>
@@ -73,12 +100,37 @@ const ResetPassword = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
+              placeholder="Confirm new password"
+              style={{
+                borderRadius: "10px",
+              }}
             />
           </div>
-          <button type="submit" className="btn btn-primary w-100">
+          <button
+            type="submit"
+            className="btn btn-primary w-100 py-2"
+            style={{
+              backgroundColor: "#ff758c",
+              borderColor: "#ff758c",
+              borderRadius: "10px",
+            }}
+          >
             Reset Password
           </button>
         </form>
+        <div className="text-center mt-4">
+          <a
+            href="/login"
+            className="btn btn-secondary py-2 px-4"
+            style={{
+              borderRadius: "10px",
+              textDecoration: "none",
+              color: "#fff",
+            }}
+          >
+            Back to Login
+          </a>
+        </div>
       </div>
     </div>
   );

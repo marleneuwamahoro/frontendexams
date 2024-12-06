@@ -1,104 +1,101 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 const OnlineJobPortal = () => {
   return (
     <div>
-      {/* Header */}
-      <header className="bg-primary text-white text-center py-4">
-        <h1>Welcome to Our Online Job Portal</h1>
-        {/* Navigation Bar */}
-        <nav className="bg-dark">
-          <ul className="nav justify-content-center py-2">
-            <li className="nav-item">
-              <a href="/" className="nav-link text-white">
+      {/* Header with Flexbox */}
+      <header
+        className="bg-dark text-white py-4 d-flex justify-content-between align-items-center"
+        style={{ backgroundColor: "#282c34" }}
+      >
+        <div className="container d-flex justify-content-between align-items-center w-100">
+          <h1 className="mb-0">Welcome to Our Dry cleanner</h1>
+          <nav>
+            <ul className="list-unstyled d-flex justify-content-center mb-0">
+            <li className="mx-3">
+              <a href="/" className="text-white bg-dark border-0 text-decoration-none">
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              <a href="/login" className="nav-link text-white">
+            <li className="mx-3">
+              <a href="/login" className="text-white bg-dark border-0 text-decoration-none">
                 Login
               </a>
             </li>
-            <li className="nav-item">
-              <a href="/signup" className="nav-link text-white">
+            <li className="mx-3">
+              <a href="/signup" className="text-white bg-dark border-0 text-decoration-none">
                 Sign Up
               </a>
-            </li>
-            <li className="nav-item">
-              <a href="/change-language?lang=en" className="nav-link text-white">
-                English
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="/change-language?lang=fr" className="nav-link text-white">
-                French
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="/change-language?lang=es" className="nav-link text-white">
-                Spanish
-              </a>
-            </li>
-          </ul>
-        </nav>
+            </li>            
+            </ul>
+          </nav>
+        </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section with Flex and Online Dry Cleaner Image */}
       <section
-        className="d-flex flex-column justify-content-center align-items-center text-center text-white bg-primary py-5"
+        className="d-flex flex-column justify-content-center align-items-center text-center text-white"
         style={{
-          background: `url('https://example.com/hero-image.jpg') no-repeat center center/cover`,
-          height: "50vh",
+          background: "url('image/image.jpg') no-repeat center center/cover", // Example Dry Cleaning Image
+          height: "60vh",
+          padding: "0 20px",
         }}
       >
-        <h2>Your Dream Job Awaits</h2>
-        <p>Find and apply for jobs that match your skills and interests.</p>
-        <button className="btn btn-warning">Browse Job Listings</button>
+        <h2>Your Journey Begins Here</h2>
+        <p>Explore our offerings and discover something new every day.</p>
+        <button className="btn btn-warning">Get Started</button>
       </section>
 
-      {/* Job Listings Section */}
-      <section className="container py-5">
-        <h2 className="text-center mb-4">Job Listings</h2>
-        <div className="row justify-content-center">
-          <div className="col-md-3 mb-4">
-            <div className="card shadow text-center p-3">
-              <h3>Software Engineer</h3>
-              <p>Location: Remote</p>
-              <p>Company: Tech Innovations</p>
-              <button className="btn btn-primary">Apply Now</button>
-            </div>
+      {/* About Section */}
+      <section className="text-center py-5">
+        <h2>About Us</h2>
+        <p>
+          We are a leading company in our industry, offering top-notch products and services.
+          Our mission is to deliver quality and value to our customers.
+        </p>
+      </section>
+
+      {/* Features Section */}
+      <section className="bg-light py-5">
+        <h2 className="text-center">Our Features</h2>
+        <div className="d-flex justify-content-around flex-wrap mt-4">
+          <div className="feature-item text-center p-4 mx-2 my-3">
+            <i className="fas fa-cog fa-3x" style={{ color: "#ff5733" }}></i>
+            <h3>Feature 1</h3>
+            <p>Short description of Feature 1</p>
           </div>
-          <div className="col-md-3 mb-4">
-            <div className="card shadow text-center p-3">
-              <h3>Project Manager</h3>
-              <p>Location: New York, NY</p>
-              <p>Company: Business Solutions</p>
-              <button className="btn btn-primary">Apply Now</button>
-            </div>
+          <div className="feature-item text-center p-4 mx-2 my-3">
+            <i className="fas fa-star fa-3x" style={{ color: "#ff5733" }}></i>
+            <h3>Feature 2</h3>
+            <p>Short description of Feature 2</p>
           </div>
-          <div className="col-md-3 mb-4">
-            <div className="card shadow text-center p-3">
-              <h3>UX Designer</h3>
-              <p>Location: San Francisco, CA</p>
-              <p>Company: Creative Agency</p>
-              <button className="btn btn-primary">Apply Now</button>
-            </div>
-          </div>
-          <div className="col-md-3 mb-4">
-            <div className="card shadow text-center p-3">
-              <h3>Data Analyst</h3>
-              <p>Location: San Francisco, CA</p>
-              <p>Company: Creative Agency</p>
-              <button className="btn btn-primary">Apply Now</button>
-            </div>
+          <div className="feature-item text-center p-4 mx-2 my-3">
+            <i className="fas fa-shield-alt fa-3x" style={{ color: "#ff5733" }}></i>
+            <h3>Feature 3</h3>
+            <p>Short description of Feature 3</p>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-dark text-white text-center py-3">
-        <p>&copy; 2024 Online Job Portal | All rights reserved</p>
+      <footer
+        className="bg-dark text-white py-4 text-center"
+        style={{ backgroundColor: "#282c34" }}
+      >
+        <div className="social-icons">
+          <button className="mx-3" style={{ color: "white", background: "none", border: "none" }}>
+            <FaFacebookF size={30} />
+          </button>
+          <button className="mx-3" style={{ color: "white", background: "none", border: "none" }}>
+            <FaTwitter size={30} />
+          </button>
+          <button className="mx-3" style={{ color: "white", background: "none", border: "none" }}>
+            <FaLinkedinIn size={30} />
+          </button>
+        </div>
+        <p>&copy; 2024 Dry cleanner Ltd | All rights reserved</p>
       </footer>
     </div>
   );
