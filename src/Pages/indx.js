@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
-const index = () => {
+const Index = () => {
   return (
     <div>
       {/* Header with Flexbox */}
@@ -11,34 +12,34 @@ const index = () => {
         style={{ backgroundColor: "#282c34" }}
       >
         <div className="container d-flex justify-content-between align-items-center w-100">
-          <h1 className="mb-0">Welcome to Our Dry cleanner</h1>
+          <h1 className="mb-0">Welcome to Our Dry Cleaner</h1>
           <nav>
             <ul className="list-unstyled d-flex justify-content-center mb-0">
-            <li className="mx-3">
-              <a href="/" className="text-white bg-dark border-0 text-decoration-none">
-                Home
-              </a>
-            </li>
-            <li className="mx-3">
-              <a href="/login" className="text-white bg-dark border-0 text-decoration-none">
-                Login
-              </a>
-            </li>
-            <li className="mx-3">
-              <a href="/signup" className="text-white bg-dark border-0 text-decoration-none">
-                Sign Up
-              </a>
-            </li>            
+              <li className="mx-3">
+                <Link to="/" className="text-white bg-dark border-0 text-decoration-none">
+                  Home
+                </Link>
+              </li>
+              <li className="mx-3">
+                <Link to="/login" className="text-white bg-dark border-0 text-decoration-none">
+                  Login
+                </Link>
+              </li>
+              <li className="mx-3">
+                <Link to="/signup" className="text-white bg-dark border-0 text-decoration-none">
+                  Sign Up
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section with Flex and Online Dry Cleaner Image */}
+      {/* Hero Section */}
       <section
         className="d-flex flex-column justify-content-center align-items-center text-center text-white"
         style={{
-          backgroundColor: 'green', // Example Dry Cleaning Image
+          backgroundColor: "green",
           height: "60vh",
           padding: "0 20px",
         }}
@@ -95,10 +96,10 @@ const index = () => {
             <FaLinkedinIn size={30} />
           </button>
         </div>
-        <p>&copy; 2024 Dry cleanner Ltd | All rights reserved</p>
+        <p>&copy; 2024 Dry Cleaner Ltd | All rights reserved</p>
       </footer>
     </div>
   );
 };
 
-export default index;
+export default Index;
