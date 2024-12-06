@@ -38,7 +38,7 @@ const OnlineJobPortal = () => {
       <section
         className="d-flex flex-column justify-content-center align-items-center text-center text-white"
         style={{
-          background: "url('image/image.jpg') no-repeat center center/cover", // Example Dry Cleaning Image
+          backgroundColor: 'green', // Example Dry Cleaning Image
           height: "60vh",
           padding: "0 20px",
         }}
